@@ -1,0 +1,23 @@
+{
+  "version": "2025-01",
+  "pricing_per_1k_tokens_usd": {
+    "anthropic.claude-3-5-sonnet": {"input": 0.003, "output": 0.015},
+    "anthropic.claude-3-haiku": {"input": 0.00025, "output": 0.00125},
+    "amazon.titan-text-express": {"input": 0.0002, "output": 0.0006},
+    "openai.gpt-4o-mini": {"input": 0.00015, "output": 0.0006}
+  },
+  "budgets_usd_monthly": {
+    "legal": 2.5,
+    "sales": 0.5,
+    "support": 0.75
+  },
+  "budget_alert_thresholds": [0.8, 1.0],
+  "enforce_budgets": true,
+  "guardrails": {
+    "pii": {"action": "redact", "types": ["email", "phone", "ssn", "credit_card"]},
+    "prompt_injection": {"action": "block"},
+    "blocked_topics": {"action": "block", "terms": ["insider trading", "bypass security controls", "disable audit logging"]},
+    "max_prompt_chars": 20000,
+    "output_pii": {"action": "redact"}
+  }
+}
